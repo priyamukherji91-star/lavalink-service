@@ -1,24 +1,30 @@
 server:
-  address: 0.0.0.0
-  port: ${PORT}
+  port: ${PORT:-2333}
 
 lavalink:
   server:
-    password: ${LAVALINK_SERVER_PASSWORD}
+    password: ${LAVALINK_PASSWORD}
     sources:
-      youtube: false   # disable built-in (deprecated) YouTube source
-      bandcamp: true
-      soundcloud: true
-      twitch: true
-      vimeo: true
-  plugins:
-    # ✅ Spotify/Apple/Deezer/etc via LavaSrc
-    - dependency: "com.github.topi314.lavasrc:lavasrc-plugin:4.8.1"
-      repository: "https://maven.lavalink.dev/releases"
-    # ✅ Current YouTube source (required to play YouTube links)
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.14.0"
-      repository: "https://maven.lavalink.dev/releases"
+      youtube: true
+      http: true
+      local: false
+      soundcloud: false
+      bandcamp: false
+      twitch: false
+      vimeo: false
+      nico: false
 
-logging:
-  level:
-    root: INFO
+# ---- LavaSrc plugin (Spotify support) ----
+plugins:
+  - dependency: "com.github.topi314.lavasrc:lavasrc-plugin:4.4.2"
+    repository: "https://maven.topi.wtf/releases"
+
+lavasrc:
+  sources:
+    spotify: true
+  providers:
+    - "spsearch"
+    - "ytsearch"
+  spotify:
+    clientId: ${SPOTIFY_CLIENT_ID}
+    clientSecret: ${SPOTIFY_CLIENT_SECRET}
