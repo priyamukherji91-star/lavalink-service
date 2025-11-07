@@ -1,0 +1,12 @@
+server:
+  address: 0.0.0.0
+  port: ${PORT}
+lavalink:
+  server:
+    password: ${LAVALINK_SERVER_PASSWORD}
+  plugins:
+    - dependency: "com.github.topi314.lavalink-plugins:spotify-plugin:1.10.2"
+      repository: "https://maven.topi.wtf/releases"
+logging:
+  level:
+    root: INFO
