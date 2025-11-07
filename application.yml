@@ -5,7 +5,7 @@ lavalink:
   server:
     password: ${LAVALINK_PASSWORD:-youshallnotpass}
     sources:
-      youtube: true
+      youtube: false        # disable core Lavaplayer YouTube
       http: true
       local: false
       soundcloud: false
