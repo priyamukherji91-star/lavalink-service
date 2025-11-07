@@ -1,5 +1,5 @@
 server:
-  port: 2333             # fixed, do NOT depend on $PORT
+  port: 2333
 
 lavalink:
   server:
@@ -15,6 +15,8 @@ lavalink:
       nico: false
 
 plugins:
+  - dependency: "dev.lavalink.youtube:youtube-plugin:1.14.0"
+    repository: "https://maven.lavalink.dev/releases"
   - dependency: "com.github.topi314.lavasrc:lavasrc-plugin:4.4.2"
     repository: "https://maven.topi.wtf/releases"
 
